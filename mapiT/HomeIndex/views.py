@@ -4,4 +4,16 @@ from django.shortcuts import render
 
 def indexHomePageRender(request): 
     context = {}
-    return render(request, 'HomePage.html', context)
+    if request.method == "POST":
+        username = request.POST.get("_username") # fetch the username.
+        password = request.POST.get("_password")  # fetch the password.
+        _user = {
+            'username': username,
+            'password': password
+        }
+        print(_user)
+        context['username'] = username
+        context['password'] = password 
+        return render(request, 'HomePage.html', context) # need to change a lot..
+    else:
+        return render(request, 'HomePage.html', context) # render the Homage page without user login.
