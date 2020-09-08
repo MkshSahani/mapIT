@@ -14,7 +14,7 @@
 <div class="container" style="align:block;"> 
     <div style="padding-top: 40px;width: 1200px;padding-left : 650px;">
     <h1 class="display-5" style="padding-left : 100px;">Sign up Form</h1>
-    <form metho="post" autocomplete="off" style="padding-top : 20px;">
+    <form metho="post" autocomplete="off" style="padding-top : 20px;" action={% url 'IndexHome' %}>
     {% csrf_token %}
   <div class="form-row">
     <div class="form-group col-md-6">
