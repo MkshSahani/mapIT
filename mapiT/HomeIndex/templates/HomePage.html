@@ -1,1 +1,9 @@
 {% extends 'HomeIndex.base.html' %}
+{% block loginForm %}
+     <form class="form-inline my-2 my-lg-0" method="post">
+    {% csrf_token %}
+      <input class="form-control mr-sm-2" type="text" placeholder="user name" aria-label="Search" name="_username" required>
+      <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="Search" name="_password" required>
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Login</button>
+    </form>
+{% endblock  %}
