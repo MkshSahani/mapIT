@@ -1,5 +1,6 @@
 {% extends 'HomeIndex.base.html' %}
-{% block loginForm %}
+{% block LoginForm %}
+
      <form class="form-inline my-2 my-lg-0" method="post">
     {% csrf_token %}
       <input class="form-control mr-sm-2" type="text" placeholder="user name" aria-label="Search" name="_username" required>
@@ -7,3 +8,47 @@
       <button class="btn btn-primary my-2 my-sm-0" type="submit">Login</button>
     </form>
 {% endblock  %}
+
+{% block belowBody %}
+
+<div class="container" style="align:block;"> 
+    <div style="padding-top: 40px;width: 1200px;padding-left : 650px;">
+    <h1 class="display-5" style="padding-left : 100px;">Sign up Form</h1>
+    <form metho="post" autocomplete="off" style="padding-top : 20px;">
+    {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4" class="display-5">user name</label>
+      <input type="text" class="form-control" id="inputEmail4" name="signupUserName" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4" class="display-5">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" name="signupUserPassword" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress" class="display-5">Email Address</label>
+    <input type="email" class="form-control" id="inputAddress" placeholder="email@email.com" required>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+
+</div>
+
+</div>
+{% endblock %}
