@@ -11,7 +11,7 @@
 
 {% block belowBody %}
 
-<div class="container" style="align:block;"> 
+<div class="container" style="align:block;" style="padding-top : 30px;"> 
     <div style="padding-top: 40px;width: 1200px;padding-left : 650px;">
     <h1 class="display-5" style="padding-left : 100px;">Sign up Form</h1>
     <form method="post" autocomplete="off" style="padding-top : 20px;" action={% url 'IndexHome' %}>
@@ -37,7 +37,7 @@
       <input type="text" class="form-control" id="inputCity" name="signupCity" required>
     </div>
     <div class="form-group col-md-4">
-      <label for="inputState">State</label>
+      <label for="inputState">Age</label>
       <select id="inputState" class="form-control" name = "signupAge">
         {% for i in ageList %}
         <option selected>{{ i }}</option>

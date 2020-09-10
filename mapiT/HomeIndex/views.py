@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from django.contrib.auth.models import User 
+from . import models
 # Create your views here.
 
 def indexHomePageRender(request): 
@@ -22,7 +23,15 @@ def indexHomePageRender(request):
             print(email_)
             print(city_)
             print(age_)
-
+            username_ = username_.split(" ")
+            firstname_ = username_[0]
+            lastname_ = "".join(username_[1:])
+            newUser = User.objects.create_user(email_, email_, password)  # new user
+            newUser.first_name = firstname_
+            newUser.last_name = lastname_
+            newUser.save()
+            newUserData = models.UserData(userName=email_, userAge=age_, userCity=city_)
+            newUserData.save() # new User Data. 
             return render(request, 'HomePage.html', context)
         else:
 
