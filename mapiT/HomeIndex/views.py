@@ -23,14 +23,16 @@ def indexHomePageRender(request):
             print(email_)
             print(city_)
             print(age_)
-            username_ = username_.split(" ")
-            firstname_ = username_[0]
-            lastname_ = "".join(username_[1:])
-            newUser = User.objects.create_user(email_, email_, password)  # new user
-            newUser.first_name = firstname_
+            username_ = username_.split(" ") # get the user name string in list. 
+            firstname_ = username_[0] # get the element in the first element firstname
+            lastname_ = "".join(username_[1:]) # rest of string is lastname
+            newUser = User.objects.create_user(email_, email_, password)  # new user in user DataBase
+            newUser.first_name = firstname_ 
             newUser.last_name = lastname_
-            newUser.save()
+            newUser.save() # user is saved here.
+            # need to store the user in seprate table contain userAge, usrCity
             newUserData = models.UserData(userName=email_, userAge=age_, userCity=city_)
+            # save new user.
             newUserData.save() # new User Data. 
             return render(request, 'HomePage.html', context)
         else:
