@@ -16,12 +16,12 @@ def indexHomePageRender(request):
             username_ = request.POST.get("signupUserName")  # fetch the signup username
             password_ = request.POST.get("signupUserPassword")  # fetch the password.
             email_ = request.POST.get("signupEmail")  # fetch the user email.
-            city_ = request.POST.get("signupCity")  # fetch the user City.
+            gender_ = request.POST.get("singupGender")  # fetch the user City.
             age_ = request.POST.get("signupAge")
             print(username_)
             print(password_)
             print(email_)
-            print(city_)
+            print(gender_)
             print(age_)
             username_ = username_.split(" ") # get the user name string in list. 
             firstname_ = username_[0] # get the element in the first element firstname
@@ -31,7 +31,7 @@ def indexHomePageRender(request):
             newUser.last_name = lastname_
             newUser.save() # user is saved here.
             # need to store the user in seprate table contain userAge, usrCity
-            newUserData = models.UserData(userName=email_, userAge=age_, userCity=city_)
+            newUserData = models.UserData(userName=email_, userAge=age_, userGender=gender_)
             # save new user.
             newUserData.save() # new User Data. 
             return render(request, 'HomePage.html', context)
