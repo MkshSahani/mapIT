@@ -9,4 +9,4 @@ class Friends(models.Model): # for list of the friend of a user.
 
     def __str__(self):
         return str(self.keyPersonUserEmail + "_Friend_" + self.valuePersonUserEmail)  # get the relationship.
- 
+
